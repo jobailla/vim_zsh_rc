@@ -1,3 +1,15 @@
+# Set Homebrew temporary folders
+ export HOMEBREW_CACHE=/tmp/$USER/Homebrew/Caches
+ export HOMEBREW_TEMP=/tmp/$USER/Homebrew/Temp
+ export HOMEBREW_LOCKS=/tmp/$USER/Homebrew/Locks
+ mkdir -p $HOMEBREW_CACHE
+ mkdir -p $HOMEBREW_TEMP
+# # # Create symlink for Locks folder
+ rm -rf $HOME/.brew/Library/Locks
+ mkdir -p $HOMEBREW_LOCKS
+ ln -s /tmp/$USER/Homebrew/Locks $HOME/.brew/Library/Locks
+ export PATH=$HOME/.brew/bin:$PATH
+
 #   foreground       backgroung  # color
 #   # '\[\033[m\]'# all plain
 #   # '\[\033[30m\]'   '\[\033[40m\]'# black
@@ -124,3 +136,4 @@ alias norme="norminette -R CheckForbiddenSourceHeader"
 alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background"
 alias emacs="vi"
 alias 42FC="sh ~/github/42FileChecker/42FileChecker.sh"
+alias k="l"
