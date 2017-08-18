@@ -1,16 +1,16 @@
 # Set Homebrew temporary folders
- export HOMEBREW_CACHE=/tmp/$USER/Homebrew/Caches
- export HOMEBREW_TEMP=/tmp/$USER/Homebrew/Temp
- export HOMEBREW_LOCKS=/tmp/$USER/Homebrew/Locks
- mkdir -p $HOMEBREW_CACHE
- mkdir -p $HOMEBREW_TEMP
+export HOMEBREW_CACHE=/tmp/$USER/Homebrew/Caches
+export HOMEBREW_TEMP=/tmp/$USER/Homebrew/Temp
+export HOMEBREW_LOCKS=/tmp/$USER/Homebrew/Locks
+mkdir -p $HOMEBREW_CACHE
+mkdir -p $HOMEBREW_TEMP
 # # # Create symlink for Locks folder
- rm -rf $HOME/.brew/Library/Locks
- mkdir -p $HOMEBREW_LOCKS
- ln -s /tmp/$USER/Homebrew/Locks $HOME/.brew/Library/Locks
- export PATH=$HOME/.brew/bin:$PATH
- export        MAIL42=jobailla@student.42.fr
- export        USER42=jobailla
+rm -rf $HOME/.brew/Library/Locks
+mkdir -p $HOMEBREW_LOCKS
+ln -s /tmp/$USER/Homebrew/Locks $HOME/.brew/Library/Locks
+export PATH=$HOME/.brew/bin:$PATH
+export        MAIL42=jobailla@student.42.fr
+export        USER42=jobailla
 
 #   foreground       backgroung  # color
 #   # '\[\033[m\]'# all plain
@@ -44,19 +44,16 @@ man() {
 		man "$@"
 }
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-plugins=(zsh-autosuggestions)
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jobailla/.oh-my-zsh
+	export ZSH=/Users/John/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="geoffgarside"
+	ZSH_THEME="geoffgarside"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -131,7 +128,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /Users/jobailla/.Sublivim/sublivimrc.sh
+source /Users/John/.Sublivim/sublivimrc.sh
 
 alias wcc="gcc -Wall -Werror -Wextra"
 alias norme="norminette -R CheckForbiddenSourceHeader"
@@ -139,3 +136,33 @@ alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaver
 alias emacs="vi"
 alias 42FC="sh ~/github/42FileChecker/42FileChecker.sh"
 alias k="l"
+
+function goto()
+{
+if [ -z "$1" ]; then
+saved;
+elif [ -f "$HOME/.path/$1.path" ]; then
+cd "$(cat "${HOME}/.path/$1.path")" || return;
+else
+echo "$1: Destination does not exist.";
+fi
+};
+
+function save()
+{
+[ ! -d "$HOME/.path/" ] && mkdir "$HOME/.path/";
+if [ -z "$1" ]; then
+saved
+else
+pwd -P > "$HOME/.path/$1.path"
+fi
+};
+
+function unsave()
+{
+if [ -z "$1" ]; then
+saved;
+elif [ -f "$HOME/.path/$1.path" ]; then
+rm -f "$HOME/.path/$1.path";
+	fi
+	};
