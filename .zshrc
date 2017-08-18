@@ -9,6 +9,8 @@
  mkdir -p $HOMEBREW_LOCKS
  ln -s /tmp/$USER/Homebrew/Locks $HOME/.brew/Library/Locks
  export PATH=$HOME/.brew/bin:$PATH
+ export        MAIL42=jobailla@student.42.fr
+ export        USER42=jobailla
 
 #   foreground       backgroung  # color
 #   # '\[\033[m\]'# all plain
