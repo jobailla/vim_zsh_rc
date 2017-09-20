@@ -77,7 +77,7 @@ noremap <C-g>				:NERDTreeToggle<CR>
 
 inoremap <C-k>				<Esc>:help key-notation<CR>
 
-inoremap <C-v>				<Esc>pi
+"inoremap <C-v>				<Esc>pi
 inoremap <C-c>				<Esc>yi
 inoremap <C-x>				<Esc>xi
 inoremap <C-u>				<Esc><C-r>i
@@ -86,7 +86,7 @@ inoremap <C-a>				<Esc>gg<S-v>G
 noremap <C-u>				<C-r>
 noremap <C-p>				:!(open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app)<CR>
 noremap <C-n>				:!norminette **/*.{c,h}<CR>
-noremap <C-v>				p
+"noremap <C-v>				p
 noremap <C-c>				y
 noremap <C-x>				x
 noremap <C-a>				gg<S-v>G
